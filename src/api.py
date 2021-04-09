@@ -13,5 +13,4 @@ class EthparserAPI:
         r = requests.get(
             self.ethparser_url + "/api/transactions/history/hardwork", params=payload
         )
-        print(r.url)
         return r.json()
