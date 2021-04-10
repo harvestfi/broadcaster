@@ -4,6 +4,9 @@ import locale
 def parse_date_unix(date) -> int:
     return int(datetime.strptime(date, "%d/%m/%Y").timestamp())
 
+def format_date(date) -> str:
+    return datetime.strptime(date, "%d/%m/%Y").strftime("%d %B %Y")
+
 def format_currency(amount):
     locale.setlocale( locale.LC_ALL, '' )
     return locale.currency(amount, grouping=True )
