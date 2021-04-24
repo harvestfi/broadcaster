@@ -23,3 +23,12 @@ class EthparserAPI:
         )
         print(r.url)
         return r.json()
+
+    def get_vaults(self, network) -> str:
+        payload = {"network": network}
+        vaults_strategies = requests.get(
+            self.ethparser_url + "/contracts/vaults", params=payload
+        )
+        print(vaults_strategies.url)
+
+        return vaults_strategies.json()

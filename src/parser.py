@@ -4,7 +4,7 @@
 # - $1,7M Income generated
 
 
-def get_hardworks_summary(hardworks) -> int:
+def get_hardworks_summary(hardworks):
     gas_saved = 0
     farm_buybacks = 0
     total_income = 0
@@ -20,10 +20,15 @@ def get_hardworks_summary(hardworks) -> int:
         "total_income": total_income,
     }
 
-def get_ps_summary(ps_history) -> int:
+def get_ps_summary(ps_history):
     current_state = 0
     emissions = ps_history[len(ps_history)-1]["sharePrice"] - ps_history[0]["sharePrice"]
     
     return {
         "emissions": emissions
+    }
+
+def get_vaults_summary(vaults):    
+    return {
+        "quantity": len(vaults["data"])
     }
