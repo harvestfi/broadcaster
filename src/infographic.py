@@ -42,7 +42,7 @@ class InfographicGenerator:
         # draw.text((200, text_height),f"Deployed Strategies",(255,255,255),font=font)
         # draw.text((800, text_height),f"{format_number(vaults_summary['quantity'])}",(207,20,135),font=metric)
 
-        img.save('strategies_infographic.jpg', quality=100, subsampling=0)
+        return img
 
     def generate_users_infographic(self, hardwork_summary, ps_summary, vaults_summary, from_date, to_date):
         img = Image.open("assets/background.jpg")
@@ -78,4 +78,4 @@ class InfographicGenerator:
         # draw.text((200, text_height),f"Deployed Strategies",(255,255,255),font=font)
         # draw.text((800, text_height),f"{format_number(vaults_summary['quantity'])}",(207,20,135),font=metric)
 
-        img.save('users_infographic.jpg', quality=100, subsampling=0)
+        return img

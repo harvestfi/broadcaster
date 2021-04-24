@@ -10,11 +10,15 @@ from src.infographic import InfographicGenerator
 def cli1():
     pass
 
+
 @cli1.command()
 @click.argument("from_date")
 @click.argument("to_date")
 @click.argument("ethparser_url")
-def strategies_infographic(from_date, to_date, ethparser_url):
+def strategies_infographic():
+    users_infographic(from_date, to_date, ethparser_url)
+
+def strategies_infographic_fn(from_date, to_date, ethparser_url):
     api = EthparserAPI(ethparser_url)
 
     hardworks = api.get_hardwork_history(
@@ -36,13 +40,19 @@ def strategies_infographic(from_date, to_date, ethparser_url):
     print(vaults_summary)
 
     ig = InfographicGenerator()
-    ig.generate_strategies_infographic(hardwork_summary, ps_summary, vaults_summary, from_date, to_date)
+    img = ig.generate_strategies_infographic(hardwork_summary, ps_summary, vaults_summary, from_date, to_date)
+    img.save('strategies_infographic.jpg', quality=100, subsampling=0)
+
+    return img
 
 @cli1.command()
 @click.argument("from_date")
 @click.argument("to_date")
 @click.argument("ethparser_url")
-def users_infographic(from_date, to_date, ethparser_url):
+def users_infographic():
+    users_infographic(from_date, to_date, ethparser_url)
+
+def users_infographic_fn(from_date, to_date, ethparser_url):
     api = EthparserAPI(ethparser_url)
 
     hardworks = api.get_hardwork_history(
@@ -64,7 +74,10 @@ def users_infographic(from_date, to_date, ethparser_url):
     print(vaults_summary)
 
     ig = InfographicGenerator()
-    ig.generate_users_infographic(hardwork_summary, ps_summary, vaults_summary, from_date, to_date)
+    img = ig.generate_users_infographic(hardwork_summary, ps_summary, vaults_summary, from_date, to_date)
+    img.save('users_infographic.jpg', quality=100, subsampling=0)
+
+    return img
 
 @cli1.command()
 def main():

@@ -10,6 +10,7 @@
 </head>
 <body>
     <section class="container">
+        <br>
         <div class="row">
             <div class="column">
                 <h2>Harvest Finance Broadcaster</h2>
@@ -18,21 +19,39 @@
 
         <div class="row">
             <div class="column">
-                <input type="date" placeholder="DD/MM/YYYY" id="from_date">
+                <input type="date" placeholder="from" id="from_date">
             </div>
             <div class="column">
-                <input type="date" placeholder="DD/MM/YYYY" id="to_date"> 
+                <input type="date" placeholder="to" id="to_date"> 
             </div>
             <div class="column">
-                <input type="submit" id="submit" value="Submit"> 
+                <input type="submit" id="submit" value="Submit" onclick="submit_form()"> 
             </div>
         </div>
 
         <div class="row">
             <div class="column">
-                <img src="https://via.placeholder.com/1366x768?text=Submit+form+to+generate+image" alt="placeholder" width="683" height="384">
+                <img id="users-inforgrafic" src="https://via.placeholder.com/1366x768?text=Submit+form+to+generate+image" alt="placeholder" height="384">
             </div>
         </div>
     </section>
 </body>
+
+<script>
+
+    function format_date(date){
+        month = date.getMonth() + 1;
+        day = date.getDate();
+        year = date.getFullYear();
+
+        return [day, month, year].join('/');
+    }
+
+    function submit_form() {
+        from_date = format_date(new Date(document.getElementById("from_date").value));
+        to_date = format_date(new Date(document.getElementById("to_date").value));
+
+        document.getElementById("users-inforgrafic").src = "/strategies_infographic?from_date="+from_date+"&to_date="+to_date; 
+    }
+</script>
 </html>
