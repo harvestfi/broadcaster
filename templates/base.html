@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
 </head>
 <body>
-<h1>Hello from Fly</h1>
-{% if name %}
-<h2>and hello to {{name}}</h2>
-{% endif %}
+    <section class="container">
+        <div class="row">
+            <div class="column">
+                <h2>Harvest Finance Broadcaster</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <input type="date" placeholder="DD/MM/YYYY" id="from_date">
+            </div>
+            <div class="column">
+                <input type="date" placeholder="DD/MM/YYYY" id="to_date"> 
+            </div>
+            <div class="column">
+                <input type="submit" id="submit" value="Submit"> 
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img src="https://via.placeholder.com/1366x768?text=Submit+form+to+generate+image" alt="placeholder" width="683" height="384">
+            </div>
+        </div>
+    </section>
 </body>
 </html>
